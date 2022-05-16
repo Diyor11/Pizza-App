@@ -16,3 +16,31 @@ body{
 .menu-item{
     @apply py-2 px-5 flex flex-col items-center rounded bg-white mx-1
 }
+
+.food-title{
+    @apply mt-5 text-4xl font-semibold
+}
+
+.cards-wrapper{
+    @apply mt-5 grid grid-cols-4 gap-x-6 gap-y-5
+}
+
+.product-item{
+    @apply border rounded w-20 h-20 flex items-center justify-center mx-auto
+}
+
+.type-btn{
+    @apply border-orange-500 border-dashed basis-2/4 text-sm rounded py-2 duration-300 border
+}
+
+.type_standart{
+    @apply bg-orange-500 text-white border-0
+}
+
+.border-orange{
+    border-color: orange;
+}
+
+.slected-payment{
+    @apply border-[7px] border-orange-500
+}
