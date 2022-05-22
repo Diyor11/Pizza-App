@@ -1,14 +1,18 @@
 import {useState} from 'react'
-import Img from '../assets/pizza/1.png'
 import Fire from '../assets/nav/Fire.svg'
 import Image from 'next/image'
+import {useContext} from 'react'
+import {Context} from '../utils/Context'
+import {addCard} from '../utils/actions'
 
 export default function Order({openMenu, setOpenMenu}) {
 
   const [isStandart, setIsStandart] = useState(true)
   const [size, setSize] = useState(20)
-  const [more, setMore] = useState({cheese: true, cucumber: false, onion: false, potatio: false})
-  const [total, setTotal] = useState(299)
+  const [more, setMore] = useState({cheese: false, cucumber: false, onion: false, potatio: false})
+
+  const {dispatch, state} = useContext(Context)
+  let {selectedOrder} = state
 
   const getRevarse = () => setIsStandart(p => !p)
 
@@ -23,20 +27,28 @@ export default function Order({openMenu, setOpenMenu}) {
       setMore({...more, potatio: !more.potatio})
   }
 
+  const getOrder = () => {
+    const {id, img, title} = selectedOrder
+    dispatch(addCard(
+      {id, img, title, type: isStandart ? 'Традиционное':'Тонкое', size, price: selectedOrder.price + Object.keys(more).map(e => more[e] ? 59:0).reduce((a, b) => a +b)} 
+    ))
+    setOpenMenu(false)
+  }
+
 
   return (
     <div className={`fixed ${!openMenu && 'hidden'} top-0 left-0 bg-[rgba(25,25,25,.4)] backdrop-blur-md z-20 w-full h-[100vh] flex items-center justify-center`}>
-        <div className="bg-white h-full rounded-3xl p-8 w-[750px] relative">
+        <div className="bg-white h-full rounded-3xl p-8 w-[850px] relative">
             <div className='flex items-center h-full'>
-              <span>
-                <Image alt='pizza' src={Img} />
+              <span className='w-1/2'>
+                {state.selectedOrder.img ? <Image className='sm:flex hidden' alt='pizza' src={selectedOrder.img} />:null}
               </span>
               <div className='grow pl-5'>
                   <div className='flex items-center w-fit mx-auto'>
                     <div className="w-6">
                       <Image alt='fire' src={Fire} />
                     </div>
-                    <h3 className='ml-2 font-bold text-lg'>EASY PEASY чикен а-ля хрен</h3>
+                    <h3 className='ml-2 font-bold text-lg'>{selectedOrder.title}</h3>
                   </div>
                   <ul className='flex items-center justify-between mt-4'>
                     <li className=''>
@@ -61,7 +73,7 @@ export default function Order({openMenu, setOpenMenu}) {
                       <span className='product-item border-[#f0f0f0]'>
                         <svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40.4759 6.52683C40.4359 3.47243 37.9469 1 34.893 1C32.1647 1 29.8887 2.97394 29.4056 5.57299C28.4465 5.99877 26.7805 6.67965 25.7878 6.8454C24.5909 7.04504 23.1443 7.10512 21.4885 7.02348C18.3256 6.86758 15.168 5.83425 12.3567 4.03438C8.81909 1.76992 5.80609 1.24 2.5871 2.31616C1.33862 2.73362 0.5 3.91207 0.5 5.24918C0.5 5.68236 0.73468 6.08103 1.11188 6.28837C1.54309 6.52499 1.94623 6.72956 2.33624 6.92704C4.44897 7.99766 5.61291 8.58734 6.38409 11.8371C6.96026 14.2636 7.96826 16.2976 9.38061 17.8821C10.2632 18.8726 11.3069 19.6906 12.4937 20.3265C11.768 20.914 11.3023 21.814 11.3023 22.8211V24.8169C11.3023 25.4704 11.8269 26 12.4739 26H26.4302C27.0771 26 27.602 25.4704 27.602 24.8169V22.8211C27.602 21.8186 27.1406 20.9224 26.4204 20.3345C29.4441 18.5547 31.2858 15.5274 31.7475 11.573C31.9923 9.47711 31.7866 7.64952 31.6432 6.74928C31.6493 6.70091 31.6532 6.65161 31.6532 6.6017C31.6532 4.81755 33.1065 3.36613 34.893 3.36613C36.6792 3.36613 38.1327 4.81755 38.1327 6.6017C38.1327 6.65808 38.1367 6.71446 38.1446 6.77023C38.1462 6.78193 38.2756 7.95483 37.5529 8.79715C36.9606 9.48728 35.9141 9.83727 34.4429 9.83727C33.7956 9.83727 33.271 10.3669 33.271 11.0203C33.271 11.6735 33.7956 12.2031 34.4429 12.2031C36.6246 12.2031 38.267 11.5783 39.3241 10.3462C40.6208 8.83536 40.5256 6.99852 40.4759 6.52683V6.52683ZM25.189 18.3212C24.2039 18.8917 23.087 19.2627 21.8687 19.4235C17.7864 19.962 10.6419 19.621 8.66345 11.2856C7.63806 6.96617 5.66845 5.96796 3.38757 4.81231C3.29785 4.76702 3.20752 4.72112 3.11627 4.67459C3.17731 4.62622 3.24719 4.58771 3.32379 4.56214C5.84759 3.71859 8.17364 4.15824 11.1015 6.03266C14.2549 8.05127 17.8068 9.21092 21.374 9.38684C23.1959 9.47649 24.8094 9.40686 26.1705 9.17949C27.1479 9.01651 28.4584 8.53127 29.4508 8.12274C29.5271 8.97092 29.5634 10.1192 29.412 11.362C29.0202 14.5831 27.5993 16.9246 25.189 18.3212V18.3212ZM14.4917 21.9834H24.4126C24.879 21.9834 25.2583 22.3593 25.2583 22.8211V23.6342H13.6457V22.8211C13.6457 22.3593 14.0254 21.9834 14.4917 21.9834V21.9834Z" fill="#FF7010" stroke="white"></path></svg>
                       </span>
-                      <h5 className='text-xs text-center mt-1'>Томатный соус</h5>
+                      <h5 className='text-xs text-center mt-1'>Cоус</h5>
                     </li>
                   </ul>
                   <div className='flex items-center mt-4'>
@@ -97,15 +109,15 @@ export default function Order({openMenu, setOpenMenu}) {
                     <li className="cursor-pointer">
                       <span onClick={() => addMore('potatio')} className={`border rounded w-20 h-20 flex items-center justify-center mx-auto border-${more.potatio ? 'orange':'[#f0f0f0]'}`}>
                         <svg className="w-6" width="35" height="41" viewBox="0 0 35 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.73174 26.0324C3.05674 27.0001 3.30369 27.6985 3.50084 28.2503C4.11055 29.8655 4.5215 31.5477 4.7248 33.2603C5.52282 38.0058 6.18359 40.4829 11.4441 40.4829C12.6695 40.5691 13.896 40.3291 14.9962 39.7878C16.5381 40.7124 18.4704 40.7147 20.0145 39.7938C21.1124 40.3303 22.3346 40.5681 23.5558 40.4829C28.8164 40.4829 29.4771 38.0071 30.2752 33.2623C30.4784 31.5494 30.8893 29.8671 31.4991 28.2516C31.6963 27.6971 31.9432 27.0014 32.2682 26.0338C32.6575 24.8879 33.1219 23.7684 33.6584 22.6824C34.5939 20.9924 35.0554 19.085 34.9947 17.1586C34.9278 12.4017 31.0504 8.56153 26.2473 8.49524C24.3825 8.39335 22.5321 8.87148 20.9552 9.86271C20.5195 9.4955 20.0364 9.18736 19.5186 8.9464V6.29609C19.5186 5.29647 19.8295 4.66205 20.4404 4.40415C20.7734 4.26527 21.0327 3.99494 21.1557 3.65844C21.285 3.3101 21.2636 2.92438 21.0965 2.59219L20.4068 1.23138C20.0674 0.583255 19.2705 0.318017 18.6048 0.631614C15.4814 2.14103 15.4814 4.32485 15.4814 5.62968V8.93773C14.9582 9.1766 14.47 9.48438 14.03 9.85271C12.4558 8.86849 10.6114 8.39404 8.75262 8.49524C3.94958 8.56153 0.0721893 12.4017 0.0052572 17.1586C-0.0551702 19.0845 0.406253 20.9914 1.34159 22.6811C1.87809 23.7671 2.34246 24.8866 2.73174 26.0324ZM16.8271 5.62968C16.8271 4.4468 16.8271 2.97404 19.2057 1.83115L19.9149 3.1773C19.2643 3.45119 18.1729 4.22089 18.1729 6.29609V8.54455C17.9501 8.51177 17.7252 8.49529 17.5 8.49524C17.2747 8.49718 17.0498 8.51522 16.8271 8.54922V5.62968ZM8.75262 9.82805C10.2492 9.74969 11.7378 10.0908 13.0476 10.8123C12.0151 12.0355 11.1964 13.4209 10.6252 14.9114C10.487 15.2533 10.6548 15.6415 11 15.7784C11.3453 15.9153 11.7372 15.7491 11.8754 15.4072C13.306 11.8613 15.3562 9.82805 17.5 9.82805C20.3738 9.82805 23.099 13.6266 24.2812 19.2844C24.3451 19.5945 24.6204 19.8173 24.9399 19.8175C24.9852 19.8172 25.0302 19.8126 25.0745 19.8035C25.4383 19.7288 25.672 19.3761 25.5967 19.0158C24.8565 15.4879 23.5585 12.655 21.9396 10.819C23.2521 10.092 24.7457 9.7484 26.2473 9.82805C30.3114 9.88431 33.5922 13.1336 33.649 17.1586C33.7035 18.8879 33.2851 20.5996 32.4378 22.1126C31.8791 23.2466 31.3952 24.4153 30.9891 25.6113C30.6661 26.5696 30.4212 27.2586 30.226 27.8104C29.5902 29.4982 29.161 31.2554 28.9476 33.0444C28.1677 37.6839 27.7223 39.15 23.5558 39.15C22.784 39.1759 22.0127 39.086 21.2681 38.8835C22.3016 37.8982 23.1452 36.7348 23.7577 35.4501C23.9234 35.1206 23.788 34.7203 23.4552 34.5561C23.1225 34.392 22.7183 34.5261 22.5526 34.8557C21.1584 37.6233 19.3645 39.15 17.5 39.15C15.1146 39.15 12.7804 36.5191 11.4078 32.286C11.278 31.9584 10.9133 31.7872 10.5751 31.8951C10.2368 32.003 10.0416 32.3528 10.1293 32.6939C10.784 35.0274 12.028 37.1573 13.744 38.8828C12.9955 39.0872 12.22 39.1773 11.4441 39.15C7.27768 39.15 6.83224 37.6839 6.0517 33.0424C5.83824 31.2536 5.40903 29.4967 4.77324 27.8091C4.57811 27.26 4.33318 26.5709 4.0102 25.6099C3.60425 24.4144 3.12056 23.2462 2.56218 22.1126C1.71491 20.5996 1.29642 18.8879 1.35101 17.1586C1.4078 13.1336 4.68858 9.88431 8.75262 9.82805Z" fill="#FF7010"></path></svg>                      </span>
-                      <h5 className='text-xs text-center mt-1'>Томатный соус</h5>
+                      <h5 className='text-xs text-center mt-1'>Cоус</h5>
                       <h4 className='text-xs font-bold text-orange-500 text-center'>59 ₽</h4>
                     </li>
                   </ul>
                   <div className='flex item-center justify-between mt-3 mb-5'>
                     <h3 className='text-orange-500 font-semibold text-md'>Итого: {
-                      total + Object.keys(more).map(e => more[e] ? 59:0).reduce((a, b) => a +b)
+                      selectedOrder.price + Object.keys(more).map(e => more[e] ? 59:0).reduce((a, b) => a +b)
                     } ₽</h3>
-                    <button className='bg-orange-500 py-1 px-4 rounded text-white text-sm'>Добавить</button>
+                    <button onClick={getOrder} className='bg-orange-500 py-1 px-4 rounded text-white text-sm'>Добавить</button>
                   </div>
               </div>
             </div>

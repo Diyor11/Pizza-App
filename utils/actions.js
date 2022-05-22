@@ -1,9 +1,13 @@
 import {actions} from './reducer'
 
-export const addOrder = (data) => {
-    return {type: actions.ADD_ORDER, payload: data}
+export const selectOrder = (data) => {
+    return {type: actions.SELECT, payload: data}
 }
 
-export const closeMenu = () => {
-    return {type: actions.CLOSE_MENU}
+export const addCard = data => {
+    return {type: actions.ADD_PRODUCT, payload: data}
+}
+
+export const setPrice = data => {
+    return {type: actions.TOTAL_PRICE}
 }

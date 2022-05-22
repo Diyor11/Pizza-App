@@ -23,15 +23,21 @@ export default function Reels() {
         },
     ]
 
+
   return (
-    <div className='mt-3 flex items-center gap-4'>
+    <div className='scrolbar-none mt-7 hidden items-center md:gap-4 w-full sm:w-80 md:w-full overflow-x-scroll realtive mx-auto min-h-[320px] justify-center sm:flex'>
         {
-            reels.map(({text, img} ,i) => (
-                <div className="relative" key={i}>
-                    <Image alt={text} src={img} />
-                    <h5 className='absolute text-white text-lg bottom-5 left-2'>{text}</h5>
+            reels.map(({text, img} ,i) => {
+
+                return(
+                <div className={`block ms:hidden`} key={i}>
+                    <div className="relative min-w-72">
+                        <Image className='w-full' alt={text} src={img} />
+                        <h5 className='absolute text-white text-lg bottom-5 left-2'>{text}</h5>
+                    </div>
                 </div>
-            ))
+                )
+            })
         }
     </div>
   )

@@ -1,6 +1,11 @@
 import Link from 'next/link'
+import { useContext } from 'react'
+import { Context } from '../utils/Context'
 
 export default function DownCart() {
+
+    const {state} = useContext(Context)
+
   return (
     <div className='fixed bottom-2 right-3 sm:hidden'>
         <Link href='/cart'>
@@ -32,7 +37,7 @@ export default function DownCart() {
                                     </clipPath>
                                 </defs>
                 </svg>      
-            <span className='absolute -top-2 right-0 bg-red-500 text-white px-1 text-xs rounded-full'>0</span>
+            <span className='absolute -top-2 right-0 bg-red-500 text-white px-1 text-xs rounded-full'>{state.orders.length}</span>
         </a>
     </Link>
   </div>

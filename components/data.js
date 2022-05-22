@@ -137,7 +137,7 @@ import Sushi8 from '../assets/sushi/8.png'
 
 export const sushis = [
   {
-      id: 1,
+      id: 9,
       img: Sushi1,
       title: 'Филадельфия кранч',
       desc: 'Семга, рис, сыр креметто, соус унаги, креветка, авокадо',
@@ -146,7 +146,7 @@ export const sushis = [
       trend: false
   },
   {
-      id: 2,
+      id: 10,
       img: Sushi2,
       title: 'Филадельфия крем-брюле',
       desc: 'Сливочный сыр, семга татаки с тростниковым сахаром, соу',
@@ -155,7 +155,7 @@ export const sushis = [
       trend: true
   },
   {
-      id: 3,
+      id: 11,
       img: Sushi3,
       title: 'Супер Филадельфия',
       desc: 'Действительно много семги, сливочный сыр, огурец, рис,',
@@ -164,7 +164,7 @@ export const sushis = [
       trend: false
   },
   {
-      id: 4,
+      id: 12,
       img: Sushi4,
       title: 'Тигр мама',
       desc: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик',
@@ -173,7 +173,7 @@ export const sushis = [
       trend: false
   },
   {
-      id: 5,
+      id: 13,
       img: Sushi5,
       title: 'Тигр мама',
       desc: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик',
@@ -182,7 +182,7 @@ export const sushis = [
       trend: true
   },
   {
-      id: 6,
+      id: 14,
       img: Sushi6,
       title: 'Супер Филадельфия',
       desc: 'Действительно много семги, сливочный сыр, огурец, рис,',
@@ -191,7 +191,7 @@ export const sushis = [
       trend: false
   },
   {
-      id: 7,
+      id: 15,
       img: Sushi7,
       title: 'Филадельфия кранч',
       desc: 'Семга, рис, сыр креметто, соус унаги, креветка, авокадо',
@@ -200,7 +200,7 @@ export const sushis = [
       trend: false
   },
   {
-      id: 8,
+      id: 16,
       img: Sushi8,
       title: 'Филадельфия крем-брюле',
       desc: 'Сливочный сыр, семга татаки с тростниковым сахаром, соу',
@@ -221,7 +221,7 @@ import D8 from '../assets/dessert/8.png'
 
 export const desserts = [
   {
-      id: 1,
+      id: 17,
       img: D1,
       title: 'Филадельфия крем-брюле',
       desc: 'Семга, рис, сыр креметто, соус унаги, креветка, авокадо',
@@ -230,7 +230,7 @@ export const desserts = [
       trend: false
   },
   {
-      id: 2,
+      id: 18,
       img: D2,
       title: 'Филадельфия крем-брюле',
       desc: 'Сливочный сыр, семга татаки с тростниковым сахаром, соу',
@@ -239,7 +239,7 @@ export const desserts = [
       trend: true
   },
   {
-      id: 3,
+      id: 19,
       img: D3,
       title: 'Супер Филадельфия',
       desc: 'Действительно много семги, сливочный сыр, огурец, рис,',
@@ -248,7 +248,7 @@ export const desserts = [
       trend: false
   },
   {
-      id: 4,
+      id: 20,
       img: D4,
       title: 'Тигр мама',
       desc: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик',
@@ -257,7 +257,7 @@ export const desserts = [
       trend: false
   },
   {
-      id: 5,
+      id: 21,
       img: D5,
       title: 'Тигр мама',
       desc: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик',
@@ -266,7 +266,7 @@ export const desserts = [
       trend: true
   },
   {
-      id: 6,
+      id: 22,
       img: D6,
       title: 'Супер Филадельфия',
       desc: 'Действительно много семги, сливочный сыр, огурец, рис,',
@@ -275,7 +275,7 @@ export const desserts = [
       trend: false
   },
   {
-      id: 7,
+      id: 23,
       img: D7,
       title: 'Филадельфия кранч',
       desc: 'Семга, рис, сыр креметто, соус унаги, креветка, авокадо',
@@ -284,7 +284,7 @@ export const desserts = [
       trend: false
   },
   {
-      id: 8,
+      id: 24,
       img: D8,
       title: 'Филадельфия крем-брюле',
       desc: 'Сливочный сыр, семга татаки с тростниковым сахаром, соу',
@@ -305,7 +305,7 @@ import Drink8 from '../assets/drinks/8.png'
 
 export const drinks = [
   {
-      id: 1,
+      id: 25,
       img: Drink1,
       title: 'Pepsi',
       desc: 'Pepsi original',
@@ -314,7 +314,7 @@ export const drinks = [
       trend: false
   },
   {
-      id: 2,
+      id: 26,
       img: Drink2,
       title: 'Pepsi',
       desc: 'Pepsi black',
@@ -323,7 +323,7 @@ export const drinks = [
       trend: true
   },
   {
-      id: 3,
+      id: 27,
       img: Drink3,
       title: 'Pepsi',
       desc: 'Pepsi no sugar',
@@ -332,7 +332,7 @@ export const drinks = [
       trend: false
   },
   {
-      id: 4,
+      id: 28,
       img: Drink4,
       title: 'Game Fuel',
       desc: 'Game Fuel',
@@ -341,7 +341,7 @@ export const drinks = [
       trend: false
   },
   {
-      id: 5,
+      id: 29,
       img: Drink5,
       title: 'Pepsi',
       desc: 'Pepsi white',
@@ -350,7 +350,7 @@ export const drinks = [
       trend: true
   },
   {
-      id: 6,
+      id: 30,
       img: Drink6,
       title: 'Game Fuel',
       desc: 'Game Fuel',
@@ -359,7 +359,7 @@ export const drinks = [
       trend: false
   },
   {
-      id: 7,
+      id: 31,
       img: Drink8,
       title: 'Mirinda',
       desc: 'Mirinda mini',
@@ -368,7 +368,7 @@ export const drinks = [
       trend: false
   },
   {
-      id: 8,
+      id: 32,
       img: Drink7,
       title: 'Pepsi',
       desc: 'Pepsi no sugar',
@@ -389,7 +389,7 @@ import Snack8 from '../assets/snack/8.png'
 
 export const snacks = [
   {
-      id: 1,
+      id: 33,
       img: Snack1,
       title: 'Филадельфия кранч',
       desc: 'Семга, рис, сыр креметто, соус унаги, креветка, авокадо',
@@ -398,7 +398,7 @@ export const snacks = [
       trend: false
   },
   {
-      id: 2,
+      id: 34,
       img: Snack2,
       title: 'Супер Филадельфия',
       desc: 'Действительно много семги, сливочный сыр, огурец, рис',
@@ -407,7 +407,7 @@ export const snacks = [
       trend: true
   },
   {
-      id: 3,
+      id: 35,
       img: Snack3,
       title: 'Филадельфия крем-брюле',
       desc: 'Сливочный сыр, семга татаки с тростниковым сахаром, соу',
@@ -416,7 +416,7 @@ export const snacks = [
       trend: false
   },
   {
-      id: 4,
+      id: 36,
       img: Snack4,
       title: 'Супер Филадельфия',
       desc: 'Действительно много семги, сливочный сыр, огурец, рис',
@@ -425,7 +425,7 @@ export const snacks = [
       trend: false
   },
   {
-      id: 5,
+      id: 37,
       img: Snack5,
       title: 'Филадельфия крем-брюле',
       desc: 'Сливочный сыр, семга татаки с тростниковым сахаром, соу',
@@ -434,7 +434,7 @@ export const snacks = [
       trend: true
   },
   {
-      id: 6,
+      id: 38,
       img: Snack6,
       title: 'Тигр мама',
       desc: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик',
@@ -443,7 +443,7 @@ export const snacks = [
       trend: false
   },
   {
-      id: 7,
+      id: 39,
       img: Snack7,
       title: 'Филадельфия кранч',
       desc: 'Семга, рис, сыр креметто, соус унаги, креветка, авокадо',
@@ -452,7 +452,7 @@ export const snacks = [
       trend: false
   },
   {
-      id: 8,
+      id: 40,
       img: Snack8,
       title: 'Тигр мама',
       desc: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик',
@@ -473,7 +473,7 @@ import Souce8 from '../assets/souse/8.png'
 
 export const souce = [
   {
-      id: 1,
+      id: 41,
       img: Souce1,
       title: 'Филадельфия кранч',
       price: 475,
@@ -481,7 +481,7 @@ export const souce = [
       trend: false
   },
   {
-      id: 2,
+      id: 42,
       img: Souce2,
       title: 'Супер Филадельфия',
       price: 425,
@@ -489,7 +489,7 @@ export const souce = [
       trend: true
   },
   {
-      id: 3,
+      id: 43,
       img: Souce3,
       title: 'Филадельфия крем-брюле',
       price: 395,
@@ -497,7 +497,7 @@ export const souce = [
       trend: false
   },
   {
-      id: 4,
+      id: 44,
       img: Souce4,
       title: 'Супер Филадельфия',
       price: 425,
@@ -505,7 +505,7 @@ export const souce = [
       trend: false
   },
   {
-      id: 5,
+      id: 45,
       img: Souce5,
       title: 'Филадельфия крем-брюле',
       price: 395,
@@ -513,7 +513,7 @@ export const souce = [
       trend: true
   },
   {
-      id: 6,
+      id: 46,
       img: Souce6,
       title: 'Тигр мама',
       price: 425,
@@ -521,7 +521,7 @@ export const souce = [
       trend: false
   },
   {
-      id: 7,
+      id: 47,
       img: Souce7,
       title: 'Филадельфия кранч',
       price: 475 ,
@@ -529,7 +529,7 @@ export const souce = [
       trend: false
   },
   {
-      id: 8,
+      id: 48,
       img: Souce8,
       title: 'Тигр мама',
       price: 399,
@@ -549,7 +549,7 @@ import C8 from '../assets/combo/8.png'
 
 export const combos = [
   {
-      id: 1,
+      id: 49,
       img: C1,
       title: 'Филадельфия кранч',
       price: 475,
@@ -557,7 +557,7 @@ export const combos = [
       trend: false
   },
   {
-      id: 2,
+      id: 50,
       img: C2,
       title: 'Супер Филадельфия',
       price: 425,
@@ -565,7 +565,7 @@ export const combos = [
       trend: true
   },
   {
-      id: 3,
+      id: 51,
       img: C3,
       title: 'Филадельфия крем-брюле',
       price: 395,
@@ -573,7 +573,7 @@ export const combos = [
       trend: false
   },
   {
-      id: 4,
+      id: 52,
       img: C4,
       title: 'Супер Филадельфия',
       price: 425,
@@ -581,7 +581,7 @@ export const combos = [
       trend: false
   },
   {
-      id: 5,
+      id: 53,
       img: C5,
       title: 'Филадельфия крем-брюле',
       price: 395,
@@ -589,7 +589,7 @@ export const combos = [
       trend: true
   },
   {
-      id: 6,
+      id: 54,
       img: C6,
       title: 'Тигр мама',
       price: 425,
@@ -597,7 +597,7 @@ export const combos = [
       trend: false
   },
   {
-      id: 7,
+      id: 55,
       img: C7,
       title: 'Филадельфия кранч',
       price: 475 ,
@@ -605,7 +605,7 @@ export const combos = [
       trend: false
   },
   {
-      id: 8,
+      id: 56,
       img: C8,
       title: 'Тигр мама',
       price: 399,
@@ -613,3 +613,7 @@ export const combos = [
       trend: false
   },
 ]
+
+const bundleData = [...pizzas, ...sushis, ...desserts, ...drinks, ...snacks, ...souce, ...combos]
+
+export default bundleData

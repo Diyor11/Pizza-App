@@ -2,7 +2,9 @@ import { createContext, useReducer } from 'react'
 import reducer from './reducer'
 
 const initialState = {
-    openMenu: false,
+    selectedOrder: {},
+    orders: [],
+    totalPrice: 0
 }
 
 export const Context = createContext()

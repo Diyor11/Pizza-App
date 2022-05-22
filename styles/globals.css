@@ -22,7 +22,7 @@ body{
 }
 
 .cards-wrapper{
-    @apply mt-5 grid grid-cols-4 gap-x-6 gap-y-5
+    @apply mt-5 grid lg:grid-cols-4 gap-x-6 gap-y-5 md:grid-cols-3
 }
 
 .product-item{
@@ -43,4 +43,34 @@ body{
 
 .slected-payment{
     @apply border-[7px] border-orange-500
+}
+
+/* width */
+.scrolbar-none::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-item{
+    min-width: 100%;
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 350ms;
+}
+
+
+.activeSlide {
+    opacity: 1;
+    transform: translateX(0);
+}
+.lastSlide {
+transform: translateX(-100%);
+}
+.nextSlide {
+transform: translateX(100%);
 }

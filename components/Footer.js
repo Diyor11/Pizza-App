@@ -2,7 +2,7 @@
 export default function Footer() {
   return (
     <div className='bg-white mt-10 py-5'>
-      <div className='flex items-center justify-between container mx-auto'>
+      <div className='flex sm:items-center justify-between container mx-auto sm:flex-row flex-col items-start sm:px-0 px-7'>
         <div>
             <svg
                               width="120"

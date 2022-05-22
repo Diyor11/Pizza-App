@@ -1,5 +1,6 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
 import Link from 'next/link'
+import {Context} from '../utils/Context'
 
 export default function HeaderB() {
 
@@ -114,7 +115,7 @@ export default function HeaderB() {
                             </clipPath>
                         </defs>
                         </svg>
-                        <span className="ml-3">0</span>
+                        <Price />
                     </a>
                 </Link>
                 <button className='sm:hidden' onClick={() => setNavOpen(p => !p)}>
@@ -162,4 +163,12 @@ export default function HeaderB() {
         
       </div>
   )
+}
+
+
+function Price() {
+
+    const {state} = useContext(Context)
+
+    return <span className="ml-3">{state.orders.length}</span>
 }
